@@ -96,3 +96,19 @@ if len(colunas_para_pairplot) > 1 and 'fraud' in df.columns:
     sns.pairplot(df[colunas_para_pairplot + ['fraud']], diag_kind='kde', hue='fraud')
     plt.suptitle('Pair Plot', y=1.02, fontsize=16)
     plt.show()
+
+"""Nesse pair plot com indicador de fraude, percebemos:
+
+
+*   Fraudes costuman acontecer perto de casa e com valores variados, sendo varios altos.
+*   Quase sempre a fraude acontece fisicamente perto da transação anterior.
+
+
+"""
+
+colunas_para_pairplot = ['distance_from_home', 'distance_from_last_transaction', 'ratio_to_median_purchase_price', 'repeat_retailer', 'used_chip', 'used_pin_number', 'online_order']
+
+if len(colunas_para_pairplot) > 1 and 'fraud' in df.columns:
+    sns.pairplot(df[colunas_para_pairplot + ['fraud']], diag_kind='kde', hue='fraud')
+    plt.suptitle('Pair Plot', y=1.02, fontsize=16)
+    plt.show()
